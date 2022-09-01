@@ -14,6 +14,7 @@ export class FrameworkComponent implements OnInit {
   @Input() isHome:boolean = false;
   @Input() isList: boolean = false;
   @Input() isAdd: boolean = false;
+  @Input() currentModelFramework:Framework;
   currentEditableFr: Framework;
 
   constructor(private api: ApiService, private router: Router) { }
@@ -22,6 +23,8 @@ export class FrameworkComponent implements OnInit {
     this.api.getFrameworks().subscribe((frameworks) => (this.frameworks = frameworks));
     console.log(this.frameworks);
   }
+
+  
 
   addFramework(framework: Framework) {
     console.log('add framework!!');
