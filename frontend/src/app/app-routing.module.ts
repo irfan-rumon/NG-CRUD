@@ -5,8 +5,17 @@ import { FrameworkComponent } from './framework/framework.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent}, 
-  { path: 'list', component: FrameworkComponent}, 
+  { path: '', component: AppComponent,
+
+  children: [
+    { path: '', component: HomeComponent },
+   
+  ]
+
+
+  } ,
+  {path: 'frameworks', component: FrameworkComponent}
+ 
  
 
 ];
