@@ -1,15 +1,3 @@
 {
-  "frameworks": [
-    {
-      "id": 1,
-      "name": "React",
-      "version": "v1.0.0"
-    },
-    {
-      "id": 2,
-      "name": "Angular",
-      "version": "v2.0.3"
-    }
-  ]
-  
+  "frameworks": []
 }

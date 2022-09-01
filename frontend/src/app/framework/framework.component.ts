@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Framework } from '../framework';
 import { ApiService } from './api.service';
 import {Router} from "@angular/router"
+import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 
 @Component({
   selector: 'app-framework',
@@ -40,6 +41,7 @@ export class FrameworkComponent implements OnInit {
       );
       this.isEdit = false; this.isList=true; this.isAdd=false; this.isHome=false;
       this.router.navigate(['/list']);
+      console.log("delete hoice!!");
   }
 
   editFramework(framework: Framework) {
