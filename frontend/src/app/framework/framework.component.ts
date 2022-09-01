@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Framework } from '../framework';
 
 @Component({
   selector: 'app-framework',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./framework.component.css']
 })
 export class FrameworkComponent implements OnInit {
+  frameworks : Framework[];
+  @Input() isEdit: boolean = false;
+  @Input() isHome:boolean = false;
+  @Input() isList: boolean = false;
+  @Input() isAdd: boolean = false;
+  currentEditableFr: Framework;
 
   constructor() { }
 
