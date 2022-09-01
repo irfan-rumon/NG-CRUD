@@ -13,10 +13,9 @@ export class FrameworkComponent implements OnInit {
   frameworks : Framework[];
   @Input() isEdit: boolean = false;
   @Input() isHome:boolean = false;
-  @Input() isList: boolean = false;
+  @Input() isList: boolean = true;
   @Input() isAdd: boolean = false;
-  @Input() currentModelFramework:Framework;
-  currentEditableFr: Framework;
+  
 
   constructor(private api: ApiService, private router: Router) { }
 
@@ -25,12 +24,23 @@ export class FrameworkComponent implements OnInit {
     console.log(this.frameworks);
   }
 
-  
+  makeIsAddTrue(){
+    this.isAdd = true;
+    this.isList = false;
+  }
+
+  makeIsEditTrue(){
+    this.isEdit = true;
+    this.isList = false;
+    this.isAdd = true;
+  }
 
   addFramework(framework: Framework) {
+    
     console.log('add framework!!');
     this.api.addFramework(framework).subscribe((framework) => this.frameworks.push(framework));
-    this.router.navigate(['/list']);
+    this.isAdd = false;  this.isList=true; 
+    this.router.navigate(['/frameworks']);
   }
 
   deleteFramework(framework: Framework) {

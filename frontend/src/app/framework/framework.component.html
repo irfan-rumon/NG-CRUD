@@ -18,15 +18,18 @@
 
 
 </head>
-<body>
-<div class="container-lg">
+
+<app-add-framework *ngIf="isAdd" (onAdd)="addFramework($event)">  
+</app-add-framework>  
+
+<div class="container-lg" *ngIf="isList">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>Framework List</h2></div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                        <button (click)="makeIsAddTrue()"  type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                     </div>
                 </div>
             </div>
@@ -46,7 +49,7 @@
                         <td>{{ fr.version }}</td>
                         <td style="width: 300px;">
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit"  title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="edit"  (click)="makeIsEditTrue()"title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" (click)="deleteFramework(fr)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                            <button id="detail">view</button>
                           
@@ -58,8 +61,13 @@
             </table>
         </div>
     </div>
-</div>     
-</body>
+</div>  
+ 
+
 </html>
 
+
+
+
+<div id="gapp"></div>
 <app-footer></app-footer>

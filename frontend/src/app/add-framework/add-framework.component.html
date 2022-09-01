@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<h3 style="text-align: center;">Add New Framework</h3>
+<form id="add-form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label"><strong>Framework Id:</strong> </label>
+      <input type="number" class="form-control" name="id" [(ngModel)]="id"  >
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label"><strong>Framework Name:</strong></label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="name" >
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"><strong>Framework Version:</strong></label>
+        <input type="text" class="form-control" name="version" [(ngModel)]="version"  >
+      </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <div id="gapp"></div>
+
+
+  
+<app-footer></app-footer>
