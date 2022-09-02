@@ -1,0 +1,26 @@
+
+
+<div id="gap-top"></div>
+
+<h4 id="heading">Edit the Framework of Id {{ framework.id }}</h4>
+
+<form id="add-form" (ngSubmit)="onSubmit()">
+    
+    <div class="mb-3">
+      <label for="name" class="form-label"><strong>Framework Name:</strong></label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="name" >
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"><strong>Framework Version:</strong></label>
+        <input type="text" class="form-control" name="version" [(ngModel)]="version"  >
+      </div>
+   
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+
+  <div id="gapp"></div>
+
+
+  
+

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Framework } from '../framework';
 import { ApiService } from './api.service';
 import {Router} from "@angular/router"
-import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
+
 
 @Component({
   selector: 'app-framework',
@@ -11,10 +11,12 @@ import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 })
 export class FrameworkComponent implements OnInit {
   frameworks : Framework[];
-  @Input() isEdit: boolean = false;
-  @Input() isHome:boolean = false;
-  @Input() isList: boolean = true;
-  @Input() isAdd: boolean = false;
+  currentEditableFr : Framework;
+  isEdit: boolean = false;
+  isHome:boolean = false;
+  isList: boolean = true;
+  isAdd: boolean = false;
+  isShowSearched: boolean = false;
   
 
   constructor(private api: ApiService, private router: Router) { }
@@ -24,22 +26,45 @@ export class FrameworkComponent implements OnInit {
     console.log(this.frameworks);
   }
 
-  makeIsAddTrue(){
-    this.isAdd = true;
+  setAllFalse(){
+    this.isEdit = false;
+    this.isAdd = false;
+    this.isHome = false;
     this.isList = false;
+    this.isShowSearched = false;
   }
 
-  makeIsEditTrue(){
-    this.isEdit = true;
-    this.isList = false;
+  makeIsAddTrue(){
+    this.setAllFalse();
     this.isAdd = true;
+  }
+
+  makeShowSearched(){
+    this.setAllFalse();
+    this.isShowSearched = true;
+  }
+
+  setEdit(framework: Framework){
+    this.setAllFalse();
+    this.isEdit = true;
+    this.currentEditableFr = framework;
+  }
+
+  makeIsHomeTrue(){
+    this.setAllFalse();
+    this.isHome = true;
+  }
+
+  makeIsListTrue(){
+    this.setAllFalse();
+    this.isList = true;
   }
 
   addFramework(framework: Framework) {
     
     console.log('add framework!!');
     this.api.addFramework(framework).subscribe((framework) => this.frameworks.push(framework));
-    this.isAdd = false;  this.isList=true; 
+    this.makeIsListTrue();
     this.router.navigate(['/frameworks']);
   }
 
@@ -49,19 +74,18 @@ export class FrameworkComponent implements OnInit {
       .subscribe(
         () => (this.frameworks = this.frameworks.filter((t) => t.id !== framework.id))
       );
-      this.isEdit = false; this.isList=true; this.isAdd=false; this.isHome=false;
-      this.router.navigate(['/list']);
-      console.log("delete hoice!!");
+      this.makeIsListTrue();
+      this.router.navigate(['/frameworks']);
+     
   }
 
   editFramework(framework: Framework) {
-    console.log("edite entered------>!!");
     this.api.editFramework(framework).subscribe(
       (res) => console.log(res)
     );
-    this.isEdit = false;
-    console.log(this.frameworks);
-    this.router.navigate(['/list']);
+    this.makeIsListTrue();
+    this.router.navigate(['/frameworks']);
+   
   }
 
 }

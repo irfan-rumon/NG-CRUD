@@ -1,7 +1,6 @@
 import { Component, OnInit, Output,  EventEmitter } from '@angular/core';
 
 import { Framework } from '../framework';
-import { ApiService } from '../framework/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,11 +34,11 @@ export class AddFrameworkComponent implements OnInit {
       return;
     }
 
-   // console.log(this.id, this.name, this.version);
+  
     this.framework.id = this.id;
     this.framework.version = this.version;
     this.framework.name = this.name;
-    //console.log("ai porjonto asce");
+
     console.log(this.framework);
     this.onAdd.emit(this.framework);
     this.router.navigate(['/frameworks']);

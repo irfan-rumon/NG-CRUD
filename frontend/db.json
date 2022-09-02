@@ -1,24 +1,14 @@
 {
   "frameworks": [
     {
-      "id": 2,
-      "name": "django",
-      "version": "tuku"
+      "id": 67,
+      "name": "React",
+      "version": "v9000"
     },
     {
-      "id": 666,
-      "version": "h",
-      "name": "lkiuh"
-    },
-    {
-      "id": 456,
-      "version": "v457",
-      "name": "kulu"
-    },
-    {
-      "id": 890,
-      "version": "v76543",
-      "name": "eregr"
+      "id": 3,
+      "name": "nigu",
+      "version": "v6.9"
     }
   ]
 }

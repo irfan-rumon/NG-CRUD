@@ -22,6 +22,11 @@
 <app-add-framework *ngIf="isAdd" (onAdd)="addFramework($event)">  
 </app-add-framework>  
 
+<app-edit-framework *ngIf="isEdit"
+  [framework] = "currentEditableFr"
+  (onEdit)="editFramework($event)"
+></app-edit-framework>
+
 <div class="container-lg" *ngIf="isList">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -49,7 +54,7 @@
                         <td>{{ fr.version }}</td>
                         <td style="width: 300px;">
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit"  (click)="makeIsEditTrue()"title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="edit"  (click)="setEdit(fr)"title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" (click)="deleteFramework(fr)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                            <button id="detail">view</button>
                           

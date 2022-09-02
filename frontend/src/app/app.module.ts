@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AddFrameworkComponent } from './add-framework/add-framework.component';
+import { EditFrameworkComponent } from './edit-framework/edit-framework.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddFrameworkComponent } from './add-framework/add-framework.component';
     NavbarComponent,
     FrameworkComponent,
     HomeComponent,
-    AddFrameworkComponent
+    AddFrameworkComponent,
+    EditFrameworkComponent
   ],
   imports: [
     BrowserModule,
