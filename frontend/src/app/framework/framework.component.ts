@@ -12,11 +12,12 @@ import {Router} from "@angular/router"
 export class FrameworkComponent implements OnInit {
   frameworks : Framework[];
   currentEditableFr : Framework;
+  currentShowingFr : Framework;
   isEdit: boolean = false;
   isHome:boolean = false;
   isList: boolean = true;
   isAdd: boolean = false;
-  isShowSearched: boolean = false;
+  isShow: boolean = false;
   
 
   constructor(private api: ApiService, private router: Router) { }
@@ -31,7 +32,7 @@ export class FrameworkComponent implements OnInit {
     this.isAdd = false;
     this.isHome = false;
     this.isList = false;
-    this.isShowSearched = false;
+    this.isShow = false;
   }
 
   makeIsAddTrue(){
@@ -39,9 +40,10 @@ export class FrameworkComponent implements OnInit {
     this.isAdd = true;
   }
 
-  makeShowSearched(){
+  makeShow(framework: Framework){
     this.setAllFalse();
-    this.isShowSearched = true;
+    this.isShow = true;
+    this.currentShowingFr = framework;
   }
 
   setEdit(framework: Framework){

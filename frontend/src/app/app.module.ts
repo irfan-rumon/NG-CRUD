@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AddFrameworkComponent } from './add-framework/add-framework.component';
 import { EditFrameworkComponent } from './edit-framework/edit-framework.component';
+import { ShowFrameworkComponent } from './show-framework/show-framework.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditFrameworkComponent } from './edit-framework/edit-framework.componen
     FrameworkComponent,
     HomeComponent,
     AddFrameworkComponent,
-    EditFrameworkComponent
+    EditFrameworkComponent,
+    ShowFrameworkComponent
   ],
   imports: [
     BrowserModule,

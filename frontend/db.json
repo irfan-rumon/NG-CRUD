@@ -1,14 +1,3 @@
 {
-  "frameworks": [
-    {
-      "id": 67,
-      "name": "React",
-      "version": "v9000"
-    },
-    {
-      "id": 3,
-      "name": "nigu",
-      "version": "v6.9"
-    }
-  ]
+  "frameworks": []
 }
