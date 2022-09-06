@@ -18,6 +18,8 @@ export class FrameworkComponent implements OnInit {
   isList: boolean = true;
   isAdd: boolean = false;
   isShow: boolean = false;
+  isSearchOnAction: boolean = false;
+  isFrameworkFound: boolean = false;
   
 
   constructor(private api: ApiService, private router: Router) { }
@@ -33,6 +35,29 @@ export class FrameworkComponent implements OnInit {
     this.isHome = false;
     this.isList = false;
     this.isShow = false;
+    this.isSearchOnAction = false;
+    this.isFrameworkFound = false;
+  }
+
+  searchFramework(fr: string){
+     
+     this.setAllFalse();
+     this.isSearchOnAction = true;
+     this.isFrameworkFound = false;
+   
+     for(let i = 0; i < this.frameworks.length; i++){
+        
+          const myVar = 'na' + 'me';
+          type ObjectKey = keyof typeof this.frameworks[0];
+          let currentFrName = this.frameworks[i][myVar as ObjectKey];
+          if( (currentFrName ==  fr.toUpperCase()) || (currentFrName ==  fr.toLowerCase()) || (currentFrName == fr)){
+              this.isFrameworkFound = true;
+              this.currentShowingFr = this.frameworks[i];
+              break;
+          }
+
+
+     }
   }
 
   makeIsAddTrue(){

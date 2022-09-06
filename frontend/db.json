@@ -1,3 +1,14 @@
 {
-  "frameworks": []
+  "frameworks": [
+    {
+      "id": 4,
+      "version": "v7.9",
+      "name": "React"
+    },
+    {
+      "id": 2,
+      "version": "v8.9",
+      "name": "NG"
+    }
+  ]
 }
