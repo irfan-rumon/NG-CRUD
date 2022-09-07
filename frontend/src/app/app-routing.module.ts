@@ -4,24 +4,22 @@ import { AppComponent } from './app.component';
 import { FrameworkComponent } from './framework/framework.component';
 import { HomeComponent } from './home/home.component';
 import { AddFrameworkComponent } from './add-framework/add-framework.component';
+import { FrameworkItemComponent } from './framework-item/framework-item.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent,
 
-  children: [
-    { path: '', component: HomeComponent },
-    {path: 'frameworks', component: FrameworkComponent },
-    {path: 'add', component: AddFrameworkComponent },
-
-  ]
-
-
-  } 
-  
+  { path: '', component: HomeComponent },
+  {path: 'frameworks', component: FrameworkComponent },
+  {path: 'frameworks/:id', component: FrameworkItemComponent },
+  {path: 'add', component: AddFrameworkComponent },
  
- 
-
 ];
+
+
+ 
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

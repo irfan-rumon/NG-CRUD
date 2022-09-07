@@ -9,6 +9,11 @@
       "id": 2,
       "version": "v8.9",
       "name": "NG"
+    },
+    {
+      "id": 5,
+      "version": "v1.9.0",
+      "name": "Gini"
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Framework } from '../framework';
-import { ApiService } from './api.service';
+import { ApiService } from '../api.service';
 import {Router} from "@angular/router"
 
 
@@ -34,7 +34,6 @@ export class FrameworkComponent implements OnInit {
     this.isAdd = false;
     this.isHome = false;
     this.isList = false;
-    this.isShow = false;
     this.isSearchOnAction = false;
     this.isFrameworkFound = false;
   }
@@ -65,11 +64,9 @@ export class FrameworkComponent implements OnInit {
     this.isAdd = true;
   }
 
-  makeShow(framework: Framework){
-    this.setAllFalse();
-    this.isShow = true;
-    this.currentShowingFr = framework;
-  }
+ onView(fr: Framework){
+     this.router.navigate(['/frameworks', fr.id]);
+ }
 
   setEdit(framework: Framework){
     this.setAllFalse();

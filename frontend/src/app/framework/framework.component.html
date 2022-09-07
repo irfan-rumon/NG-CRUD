@@ -39,10 +39,6 @@
    [errMessage] = "true"
 ></app-search>
 
-<app-show-framework *ngIf="isShow"
-  [framework] = "currentShowingFr"
-></app-show-framework>
-
 <div class="container-lg" *ngIf="isList">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -72,7 +68,7 @@
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit"  (click)="setEdit(fr)"title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" (click)="deleteFramework(fr)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                           <button id="detail" (click)="makeShow(fr)">view</button>
+                           <button id="detail" (click)="onView(fr)">view</button>
                           
                         </td>
                     </tr>

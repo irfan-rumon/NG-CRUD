@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Framework } from '../framework';
+import { Framework } from './framework';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,6 +21,10 @@ export class ApiService {
     return this.http.get<Framework[]>(this.apiUrl);
   }
 
+  getFramework(frameworkId: any): Observable<Framework> {
+    const url = `${this.apiUrl}/${frameworkId}`;
+    return this.http.get<Framework>(url);
+  }
 
 
   addFramework(Framework: Framework): Observable<Framework> {

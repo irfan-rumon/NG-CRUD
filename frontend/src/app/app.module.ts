@@ -13,6 +13,7 @@ import { AddFrameworkComponent } from './add-framework/add-framework.component';
 import { EditFrameworkComponent } from './edit-framework/edit-framework.component';
 import { ShowFrameworkComponent } from './show-framework/show-framework.component';
 import { SearchComponent } from './search/search.component';
+import { FrameworkItemComponent } from './framework-item/framework-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SearchComponent } from './search/search.component';
     AddFrameworkComponent,
     EditFrameworkComponent,
     ShowFrameworkComponent,
-    SearchComponent
+    SearchComponent,
+    FrameworkItemComponent
   ],
   imports: [
     BrowserModule,
