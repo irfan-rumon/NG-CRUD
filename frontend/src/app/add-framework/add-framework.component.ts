@@ -1,5 +1,5 @@
-import { Component, OnInit, Output,  EventEmitter } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 import { Framework } from '../framework';
 import { Router } from '@angular/router';
 
@@ -12,17 +12,16 @@ export class AddFrameworkComponent implements OnInit {
   id: number ;
   name: string;
   version: string; 
-  @Output() onAdd: EventEmitter<Framework> = new EventEmitter();
+ 
 
-  framework = {} as Framework;
+  framework: Framework = {} as Framework;
 
-  constructor( private router:Router) { }
+  constructor( private router:Router, private api: ApiService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    
 
     if (!this.name) {
       alert('Please add a name of the framework!');
@@ -39,8 +38,7 @@ export class AddFrameworkComponent implements OnInit {
     this.framework.version = this.version;
     this.framework.name = this.name;
 
-    console.log(this.framework);
-    this.onAdd.emit(this.framework);
+    this.api.addFramework(this.framework).subscribe( (framework) => this.framework = framework);
     this.router.navigate(['/frameworks']);
    
   }

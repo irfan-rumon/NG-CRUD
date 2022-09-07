@@ -11,17 +11,10 @@ import {Router} from "@angular/router"
 })
 export class FrameworkComponent implements OnInit {
   frameworks : Framework[];
-  currentEditableFr : Framework;
   currentShowingFr : Framework;
-  isEdit: boolean = false;
-  isHome:boolean = false;
-  isList: boolean = true;
-  isAdd: boolean = false;
-  isShow: boolean = false;
   isSearchOnAction: boolean = false;
   isFrameworkFound: boolean = false;
   
-
   constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,15 +23,11 @@ export class FrameworkComponent implements OnInit {
   }
 
   setAllFalse(){
-    this.isAdd = false;
-    this.isHome = false;
-    this.isList = false;
     this.isSearchOnAction = false;
     this.isFrameworkFound = false;
   }
 
   searchFramework(fr: string){
-     
      this.setAllFalse();
      this.isSearchOnAction = true;
      this.isFrameworkFound = false;
@@ -53,14 +42,7 @@ export class FrameworkComponent implements OnInit {
               this.currentShowingFr = this.frameworks[i];
               break;
           }
-
-
      }
-  }
-
-  makeIsAddTrue(){
-    this.setAllFalse();
-    this.isAdd = true;
   }
 
  onView(fr: Framework){
@@ -71,31 +53,16 @@ export class FrameworkComponent implements OnInit {
      this.router.navigate(['/frameworks', framework.id, 'edit']);
   }
 
-  makeIsHomeTrue(){
-    this.setAllFalse();
-    this.isHome = true;
-  }
-
-  makeIsListTrue(){
-    this.setAllFalse();
-    this.isList = true;
-  }
-
-  addFramework(framework: Framework) {
-    console.log('add framework!!');
-    this.api.addFramework(framework).subscribe((framework) => this.frameworks.push(framework));
-    this.makeIsListTrue();
-    this.router.navigate(['/frameworks/add']);
-  }
-
+  onAdd(){
+    this.router.navigate(['/framework', 'add']);
+  }  
+  
   deleteFramework(framework: Framework) {
     this.api
       .deleteFramework(framework)
       .subscribe(
         () => (this.frameworks = this.frameworks.filter((t) => t.id !== framework.id))
       );
-      this.makeIsListTrue();
-      this.router.navigate(['/frameworks']);
-     
+      this.router.navigate(['/frameworks']);  
   }
 }

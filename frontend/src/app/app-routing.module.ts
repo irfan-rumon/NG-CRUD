@@ -10,18 +10,12 @@ import { EditFrameworkComponent } from './edit-framework/edit-framework.componen
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
-  {path: 'frameworks', component: FrameworkComponent },
-  {path: 'frameworks/:id', component: FrameworkItemComponent },
-  {path: 'frameworks/:id/edit', component: EditFrameworkComponent },
-  {path: 'frameworks/add', component: AddFrameworkComponent },
+  { path: 'frameworks', component: FrameworkComponent },
+  { path: 'frameworks/:id', component: FrameworkItemComponent },
+  { path: 'frameworks/:id/edit', component: EditFrameworkComponent },
+  { path: 'framework/add', component: AddFrameworkComponent,  },
  
 ];
-
-
- 
-
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

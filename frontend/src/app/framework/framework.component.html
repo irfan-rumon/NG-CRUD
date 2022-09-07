@@ -1,7 +1,6 @@
 
 <app-navbar
   (dut)="searchFramework($event)"
-
 ></app-navbar>
 
 
@@ -18,13 +17,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-
 </head>
-
-<app-add-framework *ngIf="isAdd" (onAdd)="addFramework($event)">  
-</app-add-framework>  
-
 
 <app-search *ngIf="isSearchOnAction && isFrameworkFound"
    [framework] = "currentShowingFr"
@@ -34,14 +27,14 @@
    [errMessage] = "true"
 ></app-search>
 
-<div class="container-lg" *ngIf="isList">
+<div class="container-lg" >
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>Framework List</h2></div>
                     <div class="col-sm-4">
-                        <button (click)="makeIsAddTrue()"  type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                        <button (click)="onAdd()"  type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                     </div>
                 </div>
             </div>
@@ -60,15 +53,14 @@
                         <td>{{ fr.name }}</td>
                         <td>{{ fr.version }}</td>
                         <td style="width: 300px;">
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="add"  title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit"  (click)="onEdit(fr)"title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" (click)="deleteFramework(fr)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                            <button id="detail" (click)="onView(fr)">view</button>
                           
                         </td>
                     </tr>
-                    
-                       
+                                  
                 </tbody>
             </table>
         </div>
@@ -77,8 +69,6 @@
  
 
 </html>
-
-
 
 
 <div id="gapp"></div>
