@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Framework } from '../framework';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-framework',
@@ -9,15 +11,20 @@ import { Router } from '@angular/router';
 })
 export class EditFrameworkComponent implements OnInit {
 
+  frameworkId: Number;
+  framework: Framework;
+
   name: string;
   version: string; 
   @Output() onEdit: EventEmitter<Framework> = new EventEmitter();
-  @Input() framework: Framework;
-
  
-  constructor( private router:Router) { }
+ 
+  constructor( private router:Router, private api: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let id: any =  this.route.snapshot.paramMap.get('id') ;
+    this.frameworkId = parseInt (id);
+    this.api.getFramework(this.frameworkId).subscribe((framework) => this.framework = framework );
   }
 
   onSubmit() {
@@ -28,7 +35,8 @@ export class EditFrameworkComponent implements OnInit {
       version: this.version,
     };
     //console.log(newFramework)
-    this.onEdit.emit(newFramework);
+    //this.onEdit.emit(newFramework);
+    this.api.editFramework(this.frameworkId, newFramework).subscribe( (framework) => this.framework = framework)
     this.router.navigate(['/frameworks']);
   }
 

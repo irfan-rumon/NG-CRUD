@@ -25,11 +25,6 @@
 <app-add-framework *ngIf="isAdd" (onAdd)="addFramework($event)">  
 </app-add-framework>  
 
-<app-edit-framework *ngIf="isEdit"
-  [framework] = "currentEditableFr"
-  (onEdit)="editFramework($event)"
-></app-edit-framework>
-
 
 <app-search *ngIf="isSearchOnAction && isFrameworkFound"
    [framework] = "currentShowingFr"
@@ -66,7 +61,7 @@
                         <td>{{ fr.version }}</td>
                         <td style="width: 300px;">
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit"  (click)="setEdit(fr)"title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="edit"  (click)="onEdit(fr)"title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" (click)="deleteFramework(fr)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                            <button id="detail" (click)="onView(fr)">view</button>
                           

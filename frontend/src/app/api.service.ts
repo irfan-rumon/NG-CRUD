@@ -31,8 +31,8 @@ export class ApiService {
     return this.http.post<Framework>(this.apiUrl, Framework, httpOptions);
   }
 
-  editFramework(framework: Framework): Observable<Framework> {
-    const url = `${this.apiUrl}/${framework.id}`;
+  editFramework(frameworkId: any, framework:Framework): Observable<Framework> {
+    const url = `${this.apiUrl}/${frameworkId}`;
     return this.http.put<Framework>(url, framework, httpOptions);
   }
 

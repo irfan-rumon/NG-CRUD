@@ -30,7 +30,6 @@ export class FrameworkComponent implements OnInit {
   }
 
   setAllFalse(){
-    this.isEdit = false;
     this.isAdd = false;
     this.isHome = false;
     this.isList = false;
@@ -68,10 +67,8 @@ export class FrameworkComponent implements OnInit {
      this.router.navigate(['/frameworks', fr.id]);
  }
 
-  setEdit(framework: Framework){
-    this.setAllFalse();
-    this.isEdit = true;
-    this.currentEditableFr = framework;
+ onEdit(framework: Framework){
+     this.router.navigate(['/frameworks', framework.id, 'edit']);
   }
 
   makeIsHomeTrue(){
@@ -85,11 +82,10 @@ export class FrameworkComponent implements OnInit {
   }
 
   addFramework(framework: Framework) {
-    
     console.log('add framework!!');
     this.api.addFramework(framework).subscribe((framework) => this.frameworks.push(framework));
     this.makeIsListTrue();
-    this.router.navigate(['/frameworks']);
+    this.router.navigate(['/frameworks/add']);
   }
 
   deleteFramework(framework: Framework) {
@@ -102,14 +98,4 @@ export class FrameworkComponent implements OnInit {
       this.router.navigate(['/frameworks']);
      
   }
-
-  editFramework(framework: Framework) {
-    this.api.editFramework(framework).subscribe(
-      (res) => console.log(res)
-    );
-    this.makeIsListTrue();
-    this.router.navigate(['/frameworks']);
-   
-  }
-
 }

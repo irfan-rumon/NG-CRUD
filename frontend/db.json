@@ -2,8 +2,8 @@
   "frameworks": [
     {
       "id": 4,
-      "version": "v7.9",
-      "name": "React"
+      "name": "kkkk",
+      "version": "v8.9.1"
     },
     {
       "id": 2,
@@ -12,8 +12,8 @@
     },
     {
       "id": 5,
-      "version": "v1.9.0",
-      "name": "Gini"
+      "name": "Gini",
+      "version": "v2.0.0"
     }
   ]
 }
